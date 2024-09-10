@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Simples de Adivinhar a Palavra</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Adivinhe a Palavra</h1>
+        
+    <ul>
+        <li>É uma linguagem de Programação</li>
+        <li>Possui uma Máquina Virtual</li>
+        <li>Muito útil na programação Mobile, principalmente Android</li>
+    </ul>
+
+        <input type="text" id="palavra" placeholder="Digite a palavra">
+        <button id="adivinharBtn">Adivinhar</button>
+        <p id="resultado"></p>
+        
+    </div>
+
+
+    <script>
+
+class JogoAdivinhacao {
+
+    constructor(palavraSecreta) {
+        this.palavraSecreta = palavraSecreta.toLowerCase();
+        this.input = document.getElementById("palavra");
+        this.resultado = document.getElementById("resultado");
+        this.botaoAdivinhar = document.getElementById("adivinharBtn");
+
+        this.botaoAdivinhar.addEventListener("click", () => this.adivinhar());
+    }
+
+    adivinhar() {
+        const palavraDigitada = this.input.value.toLowerCase();
+        if (palavraDigitada === this.palavraSecreta) {
+            this.mostrarResultado("Parabéns! Você adivinhou a palavra!");
+        } else {
+            this.mostrarResultado("Tente novamente!");
+        }
+    }
+
+    mostrarResultado(mensagem) {
+        this.resultado.innerHTML = mensagem;
+    }
+}
+
+
+const jogo = new JogoAdivinhacao("java");
+
+    </script>
+    
+</body>
+</html>
+
